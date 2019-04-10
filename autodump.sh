@@ -1,5 +1,6 @@
 #!/bin/bash
 echo"
+-----------------------------------------------------
 termux 一键部署ncmdump.py jio本
 
 
@@ -7,8 +8,7 @@ ps:ncmdump.py是在gayhub上偷的~
 嘤嘤嘤~ 作者：隔壁泰山
 **********************************"
 
-echo "安装依赖包?[y/n]"
-read -p "(默认y)" unyn
+read -p "请回车安装依赖包..."
 pkg install wget && pkg upgrade -y && pkg update -y && apt-get install clang -y && pip install pycryptodome mutagen && pkg install -y python
 wget https://github.com/nondanee/ncmdump/blob/master/ncmdump.py
 echo "依赖包安装完成"
