@@ -1,6 +1,5 @@
 #!/bin/bash
-echo "
-************************************
+echo"
 termux 一键部署ncmdump.py jio本
 
 
@@ -14,6 +13,7 @@ pkg install wget && pkg upgrade -y && pkg update -y && apt-get install clang -y 
 wget https://github.com/nondanee/ncmdump/blob/master/ncmdump.py
 echo "依赖包安装完成"
 read -p "请按回车键运行后台解密脚本:(定制ROM不要结束Termux哟~)"
+cd Termux-ncm-
 while :
 do
 if [ -e /sdcard/netease/cloudmusic/Music/*.ncm ]; then
