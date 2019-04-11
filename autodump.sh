@@ -10,7 +10,7 @@ ps:ncmdump.py是在gayhub上偷的~
 
 read -p "请回车安装依赖包..."
 pkg install wget && pkg upgrade -y && pkg update -y && apt-get install clang -y && pip install pycryptodome mutagen && pkg install -y python
-wget https://github.com/nondanee/ncmdump/blob/master/ncmdump.py
+wget -Nq https://github.com/nondanee/ncmdump/blob/master/ncmdump.py
 echo "依赖包安装完成"
 read -p "请按回车键运行后台解密脚本:(定制ROM不要结束Termux哟~)"
 
