@@ -25,14 +25,18 @@ echo "
 正在解密ing..."
 while :
 do
-if [ -e "/sdcard/netease/cloudmusic/Music/*.ncm" ]; 
+if [ -e /sdcard/netease/cloudmusic/Music/*.ncm ]; 
 then
 	#判断是否存在网易云ncm加密文件
 	mv /sdcard/netease/cloudmusic/Music/*.ncm .
 	#移动加密文件至解密脚本目录
-	python ncmdump.py && echo  "已解密,文件已输出到目录：/sdcard/Music" && rm -rf *.ncm  #重定向解密文件至/sdcard/Music/netease
-
-elif [ -e "/sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/music/*.ncm" ] ;
+	python ncmdump.py && echo  "已解密,文件已输出到目录：/sdcard/Music" && rm -rf *.ncm
+elif [ -e /sdcard/music/netease/*.ncm ] ;
+then
+        mv /sdcard/music/netease/*.ncm .
+        #移动加密文件至解密脚本目录
+        python ncmdump.py && echo "已解密,文件已输出到目录：/sdcard/Music/netease" && rm -rf *.ncm
+elif [ -e /sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/music/*.ncm ] ;
 then   
 	mv /sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/music/*.ncm . 
 	#移动加密文件至解密脚本目录
@@ -44,14 +48,14 @@ fi
 #输出解密后的文件
 a="*.mp3"
 b="*.flac"
-if [ -e "$a" ];then                                                           
-	 mv -f "$a" /sdcard/music/netease 
-	 #mp3 --> netease/
- elif [ -f "$b" ];then
-	 mv -f "b" /sdcard/music/netease
-	 #flac --> netease/
+if [ -f $a ];then                                                           
+	 mv -f $a /sdcard/music/netease 
+
+ elif [ -f $b ];then
+	 mv -f $b /sdcard/music/netease
+
 else
-echo "">/dev/null	 
+echo "" >>/dev/null	 
 fi
 
 done
