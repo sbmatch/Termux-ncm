@@ -9,7 +9,7 @@ ps:ncmdump.py是在gayhub上偷的~
 **********************************"
 
 read -p "请回车安装依赖包..."
-pkg install wget && pkg upgrade && pkg update  && pkg install  python && apt-get install clang -y && pip install --upgrade pip && pip install pycryptodome mutagen
+pkg install wget && pkg upgrade -y && pkg update -y  && pkg install  python && apt-get install clang -y && pip install --upgrade pip && pip install pycryptodome mutagen
 
 if [ -e ncmdump.py ]; then
 	echo "
