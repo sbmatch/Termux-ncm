@@ -1,1 +1,0 @@
-# autodump.sh
