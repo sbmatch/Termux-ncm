@@ -1,1 +1,1 @@
-# Termux-ncmdump.py-
+# autodump.sh
