@@ -18,18 +18,18 @@ echo -e "${Green_font_perfix}
 #循环判断ncm文件是否存在
 while :
 do
-if [ -e /sdcard/netease/cloudmusic/Music/*.ncm ]; 
+if [ -e "/sdcard/netease/cloudmusic/Music/*.ncm" ]; 
 then
 	#判断是否存在网易云ncm加密文件
 	mv /sdcard/netease/cloudmusic/Music/*.ncm .
 	#移动加密文件至解密脚本目录
 	python ncmdump.py && echo  "已解密,文件已输出到目录：/sdcard/Music" && rm -rf *.ncm
-elif [ -e /sdcard/music/netease/*.ncm ] ;
+elif [ -e "/sdcard/music/netease/*.ncm" ] ;
 then
         mv /sdcard/music/netease/*.ncm .
         #移动加密文件至解密脚本目录
         python ncmdump.py && echo "已解密,文件已输出到目录：/sdcard/Music/netease" && rm -rf *.ncm
-elif [ -e /sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/music/*.ncm ] ;
+elif [ -e "/sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/music/*.ncm" ] ;
 then   
 	mv /sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/music/*.ncm . 
 	#移动加密文件至解密脚本目录
