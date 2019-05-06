@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export HOME =/sdcard
 #字体颜色
 Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" &&  Blue_font_prefix="\033[36m" && White="\033[47;30m" && Green_font_perfix="\033[32m" &&reset="\033[0m"
 
@@ -15,42 +15,41 @@ echo -e "${Green_font_perfix}
 哈哈哈，哈哈哈哈，哈哈哈哈哈，咳咳咳
 (=￣ω￣=)${reset}
 "
-#循环判断ncm文件是否存在
+#循环判断ncm文件路径
+file1="/sdcard/netease/cloudmusic/Music"
+file2="/sdcard/Music/netease"
+file3="/sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/Music"
 while :
 do
-if [ -e /sdcard/netease/cloudmusic/Music/*.ncm ]; 
+if [ -d $file1 ]; 
 then
-	#判断是否存在网易云ncm加密文件
-	mv /sdcard/netease/cloudmusic/Music/*.ncm .
-	#移动加密文件至解密脚本目录
-	python ncmdump.py && echo  "已解密,文件已输出到目录：/sdcard/Music" && rm -rf *.ncm
-elif [ -e /sdcard/music/netease/*.ncm ] ;
+	find $file1 -name "*.ncm" -exec mv {} . \; && python ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
+#移动加密文件进行解密
+
+elif [ -d $file2 ] ;
 then
-        mv /sdcard/music/netease/*.ncm .
-        #移动加密文件至解密脚本目录
-        python ncmdump.py && echo "已解密,文件已输出到目录：/sdcard/Music/netease" && rm -rf *.ncm
-elif [ -e /sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/music/*.ncm ] ;
+	find $file2 -name "*.ncm" -exec mv {} . \; && python ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
+#Ｏ(≧▽≦)Ｏ 
+elif [ -d $file3 ] ;
 then   
-	mv /sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/music/*.ncm . 
-	#移动加密文件至解密脚本目录
-        python ncmdump.py && echo "已解密,文件已输出到目录：/sdcard/Music/netease" && rm -rf *.ncm
+	find $file3 -name "*.ncm" -exec mv {} . \; && python ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
+# o(*≧▽≦)ツ ~ ┴┴
 else
 	echo "没有找到ncm文件" >> /dev/null
+
 fi
 
-#输出解密后的文件
-a="*.mp3"
-b="*.flac"
-if [ -f $a ];then                                                           
-	 mv -f $a /sdcard/music/netease 
-
- elif [ -f $b ];then
-	 mv -f $b /sdcard/music/netease
-fi
-
+outfile
+#运行
 done
-
 }
+#输出解密后的文件
+outfile(){
+	[ -f *.mp3 ] && mv -f *.mp3 /sdcard/Music/netease && echo "已解密,文件已输出到目录：/sdcard/Music/netease"
+	[ -f *.flac ] && mv -f *.flac /sdcard/Music/netease && echo "已解密,文件已输出到目录：/sdcard/Music/netease"
+ }
+
+
 #主界面
  start-menu(){
  clear
