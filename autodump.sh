@@ -21,7 +21,7 @@ file2="/sdcard/Music/netease"
 file3="/sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/Music"
 while :
 do
-<<<<<<< HEAD
+
 if [ -d $file1 ]; 
 then
 	find $file1 -name "*.ncm" -exec mv {} . \; && python ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
@@ -32,7 +32,7 @@ then
 	find $file2 -name "*.ncm" -exec mv {} . \; && python ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
 #Ｏ(≧▽≦)Ｏ 
 elif [ -d $file3 ] ;
-=======
+
 if [ -e "/sdcard/netease/cloudmusic/Music/*.ncm" ]; 
 then
 	#判断是否存在网易云ncm加密文件
@@ -45,7 +45,7 @@ then
         #移动加密文件至解密脚本目录
         python ncmdump.py && echo "已解密,文件已输出到目录：/sdcard/Music/netease" && rm -rf *.ncm
 elif [ -e "/sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/music/*.ncm" ] ;
->>>>>>> e64dca50b9a2a69ff36122c9574792c7be3bd4ee
+
 then   
 	find $file3 -name "*.ncm" -exec mv {} . \; && python ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
 # o(*≧▽≦)ツ ~ ┴┴
