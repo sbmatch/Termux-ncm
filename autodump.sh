@@ -1,5 +1,5 @@
 #!/bin/bash
-#export HOME =/sdcard
+chmod +x autodump.sh
 #字体颜色
 Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_background_prefix="\033[41;37m" &&  Blue_font_prefix="\033[36m" && White="\033[47;30m" && Green_font_perfix="\033[32m" &&reset="\033[0m"
 
@@ -29,15 +29,15 @@ elif [ -d $file3 ]; then
 else
 	echo "没有找到ncm文件" >> /dev/null
 fi
-outfile #输出解密后的文件
+outfile 2>/dev/null #输出解密后的文件
 done
 }
 #运行
 
 #输出解密后的文件
 outfile(){
-	[ -f *.mp3 ] && mv -f *.mp3 /sdcard/Music/netease && echo "已解密,文件已输出到目录：/sdcard/Music/netease"
-	[ -f *.flac ] && mv -f *.flac /sdcard/Music/netease && echo "已解密,文件已输出到目录：/sdcard/Music/netease"
+	mv -f *.mp3 /sdcard/Music/netease && echo "已解密,mp3文件已输出到目录：/sdcard/Music/netease" 
+	mv -f *.flac /sdcard/Music/netease && echo "已解密,flac文件已输出到目录：/sdcard/Music/netease"
  }
 
 #主界面
