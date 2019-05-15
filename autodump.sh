@@ -87,7 +87,7 @@ esac
 
 #安装依赖包
 dependency(){
-	pkg install wget  && pkg install python && apt-get install clang -y && pip install --upgrade pip && pip install pycryptodome mutagen
+	pkg install wget  && pkg install python && apt-get install clang -y && pip install --upgrade pip && pip install pycryptodome mutagen pycryptodomex
 
  if [ -e ncmdump.py ]; then
 	 rundump
