@@ -32,12 +32,19 @@ fi
 outfile 2>/dev/null #输出解密后的文件
 done
 }
-#运行
+
+#判断重定向的目录是否存在
+if [ -d "/sdcard/Music/netease/" ] ;then
+	mpath=/sdcard/Music/netease/
+else
+	mkdir /sdcard/Music/netease/
+	mpath=/sdcard/Music/netease/
+fi
 
 #输出解密后的文件
 outfile(){
-	mv -f *.mp3 /sdcard/Music/netease && echo "已解密,mp3文件已输出到目录：/sdcard/Music/netease" 
-	mv -f *.flac /sdcard/Music/netease && echo "已解密,flac文件已输出到目录：/sdcard/Music/netease"
+	mv -f *.mp3 $mpath && echo "已解密,mp3文件已输出到目录：/sdcard/Music/netease" 
+	mv -f *.flac $mpath && echo "已解密,flac文件已输出到目录：/sdcard/Music/netease"
  }
 
 #主界面
