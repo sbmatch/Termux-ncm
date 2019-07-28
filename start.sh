@@ -109,8 +109,9 @@ check_sys(){
 
 	if cat /etc/issue | grep -q -E -i "ubuntu"; then
 		release="ubuntu"
-        elif [ `pwd` = "/data/data/com.termux/files/home" ]; then
-		release="termux"
+        elif [ `pwd` = "/data/data/com.termux/files/home" ] ; then
+    release="termux"
+else  release=""
     fi
 }
 
