@@ -92,7 +92,7 @@ dependency(){
 
 [ ${release}="termux" ] && pkg install wget python  clang -y && pip install --upgrade pip && pip install pycryptodome mutagen pycryptodomex
 
-[ ${release}="ubuntu" ] && apt install wget python3 clang python3-pip -y && pip3 install pycryptodome mutagen pycryptodomex pycrypto
+[ ${release}="ubuntu" ] && apt install wget python3 clang python3-pip -y && pip3 install --upgrade pip && pip install pycryptodome mutagen pycryptodomex pycrypto && apt remove python3-pip -y > /dev/null
 
  if [ -e ncmdump.py ]; then
 	 rundump
