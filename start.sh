@@ -97,7 +97,7 @@ dependency(){
  if [ -e ncmdump.py ]; then
 	 rundump
 else
- wget -N https://github.com/3207754367/ncmdump/raw/master/ncmdump.py && chmod +x ncmdump.py && rundump
+ wget -N https://raw.githubusercontent.com/3207754367/Termux-ncm/master/ncmdump.py && chmod +x ncmdump.py && rundump
 
  fi
 }
