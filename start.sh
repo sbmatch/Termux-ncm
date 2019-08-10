@@ -48,11 +48,11 @@ outfile(){
  a="爱的供养，再问自杀"
  echo -e "
 ${Green_font_perfix}
-******古他妈黑暗之神 呼啦啦 解除*****
-
-termux 一键部署ncmdump.py
-ncmdump.py是在gayhub上偷哒~
-嘤嘤嘤~ 作者：隔壁泰山
+***************************************************
+一键部署NCM解密脚本
+ncmdump.py来自github@https://github.com/nondanee
+作者：隔壁泰山
+***************************************************
 
 1.开始安装依赖包(如果是第一次运行)
 2.启动解密脚本
@@ -90,9 +90,11 @@ esac
 #安装依赖包
 dependency(){
 
-[[ ${release}!="termux" ]] && echo "安装依赖中，请稍后..." && pkg install wget python  clang -y && pip install --upgrade pip && pip install pycryptodome mutagen pycryptodomex
-
-[[ ${release}!="ubuntu" ]] && echo "安装依赖中，请稍后..." && apt install wget python3 clang python3-pip -y && pip3 install --upgrade pip && pip install pycryptodome mutagen pycryptodomex pycrypto && apt remove python3-pip -y > /dev/null
+if [[ "${release}" == "termux" ]]; then
+	echo "设备环境:${release}  安装依赖中，请稍后..." && pkg install wget python  clang -y && pip install --upgrade pip && pip install pycryptodome mutagen pycryptodomex
+elif [[ "${release}" == "ubuntu" ]]; then
+	echo "设备环境:${release}  安装依赖中，请稍后..." && apt install wget python3 clang python3-pip -y && pip3 install --upgrade pip && pip install pycryptodome mutagen pycryptodomex pycrypto && apt remove python3-pip -y > /dev/null
+fi
 
  if [ -e ncmdump.py ]; then
 	 rundump
