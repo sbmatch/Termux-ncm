@@ -6,24 +6,11 @@ Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_backg
 #解密ncm
 rundump(){
 echo -e "${Green_font_perfix}正在解密ing.${reset}"
-#循环判断ncm文件路径
-file1="/sdcard/netease/cloudmusic/Music"
-file2="/sdcard/Music/netease"
-file3="/sdcard/Android/data/com.netease.cloudmusic/sdcard/netease/cloudmusic/Music"
 
 while true
 do
-
-if [ -d $file1 ]; then
-	find $file1 -name "*.ncm" -exec mv {} . \; && python3 ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
+	find /sdcard -name "*.ncm" -exec mv {} . \; && python3 ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
 #移动加密文件进行解密
-elif [ -d $file2 ]; then
-	find $file2 -name "*.ncm" -exec mv {} . \; && python3 ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm 
-elif [ -d $file3 ]; then
-	find $file3 -name "*.ncm" -exec mv {} . \; && python3 ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
-else
-	echo "没有找到ncm文件" >> /dev/null
-fi
 outfile 2>/dev/null #输出解密后的文件
 done
 }
