@@ -7,9 +7,11 @@ Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_backg
 rundump(){
 echo -e "${Green_font_perfix}正在解密ing.${reset}"
 
+file="/mnt/sdcard/"
+
 while true
 do
-	find /sdcard -name "*.ncm" -exec mv {} . \; && python3 ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
+	find $file -name "*.ncm" -exec mv {} . \; && python3 ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
 #移动加密文件进行解密
 outfile 2>/dev/null #输出解密后的文件
 done
