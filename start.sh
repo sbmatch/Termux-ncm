@@ -5,16 +5,20 @@ Red_font_prefix="\033[31m" && Green_background_prefix="\033[42;37m" && Red_backg
 
 #解密ncm
 rundump(){
-echo -e "${Green_font_perfix}正在解密ing.${reset}"
+echo -e "${Green_font_perfix}注意:${reset}我们需要知道ncm文件的详细路径"
 
-file="/mnt/sdcard/"
-
+read -p "请输入ncm文件路径:" file
+case $file in
+*)
+echo "感谢使用，脚本已结束"
+exit                                                                                ;;                                                                  esac
 while true
 do
-	find $file -name "*.ncm" -exec mv {} . \; && python3 ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 3 && rm -rf *.ncm
+	find $file -name "*.ncm" -exec mv {} . \; && python3 ncmdump.py $1 | sed -e '/please input file path!/d' && sleep 5 && rm -rf *.ncm
 #移动加密文件进行解密
 outfile 2>/dev/null #输出解密后的文件
 done
+
 }
 
 #判断重定向的目录是否存在
