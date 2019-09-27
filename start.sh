@@ -9,7 +9,7 @@ echo -e "${Green_font_perfix}注意:${reset}我们需要知道ncm文件的详细
 
 read -p "请输入ncm文件路径:" file
 case $file in
-*)
+'')
 echo "感谢使用，脚本已结束"
 exit                                                                                ;;                                                                  esac
 while true
